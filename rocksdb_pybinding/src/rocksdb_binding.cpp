@@ -142,7 +142,7 @@ PYBIND11_MODULE(rocksdb_binding, m) {
   m.doc() = "Custom RocksDB Python binding";
 
   py::class_<RocksDBWrapper>(m, "RocksDB")
-      .def(py::init<>())
+      .def(py::init<bool>(), py::arg("blobdb") = false)
       .def("open", &RocksDBWrapper::open)
       .def("put", &RocksDBWrapper::put)
       .def("get", &RocksDBWrapper::get)
